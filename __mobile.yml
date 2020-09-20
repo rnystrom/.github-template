@@ -1,0 +1,65 @@
+# List item template:
+# - list:
+#   name: Assigned Issues
+#   # A GitHub search query. See https://docs.github.com/en/github/searching-for-information-on-github
+#   query: archived:false is:issue is:open assignee:@me sort:created-desc
+#   type: issue # The type of element in the list: issue (includes pull requests), user, or repo
+#   icon: # optional
+
+# Navigation item template:
+# - navigation:
+#   # A GitHub URL without the host or domain. Ex: "owner/repo" or "owner/repo/issues/123"
+#   # "__issues/new" is a mobile-only shortcut to prompt for a new issue with a repo picker.
+#   path: __issues/new #required
+#   name: Create Issue #required
+#   icon: # optional
+
+# Icon template:
+# icon:
+#   name: # An icon name from the "24px" Octicon set https://primer.style/octicons/
+#   url: # Any image url. Recommended to fetch smaller sizes, ex: https://github.com/github.png?size=128
+#   emoji: # A single emoji character
+#   tint: # A color hex value without the "#" to tint the icon. Only works when using Octicons.
+#   background: # A color hex value without the "#" to show behind the icon. Only works when using Octicons.
+
+sections:
+- name: My Work
+  items:
+    - list:
+      name: Assigned Issues
+      query: archived:false is:issue is:open assignee:@me sort:created-desc
+      type: issue
+      icon:
+        name: issue-opened
+        tint: ffffff
+        background: 34D058
+    - list:
+      name: My Pull Requests
+      query: archived:false is:pr is:open author:@me sort:created-desc
+      type: issue
+      icon:
+        name: git-pull-request
+        tint: ffffff
+        background: 2188FF
+    - list:
+      name: Review requests
+      query: archived:false is:pr is:open review-requested:@me sort:created-desc
+      type: issue
+      icon:
+        name: code-review
+        tint: ffffff
+        background: FB8532
+    - list:
+      name: Repositories
+      query: archived:false user:@me sort:updated-desc
+      type: issue
+      icon:
+        name: repo
+        tint: ffffff
+        background: 8A63D2
+    - navigation:
+      path: __issues/new
+      name: Create Issue
+      icon:
+        name: plus-circle
+        tint: 0366D6
